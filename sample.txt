@@ -1,0 +1,73 @@
+
+
+
+
+
+OrdersPerCustomer
+CREATE QUERY OrdersPerCustomer() FOR GRAPH RetailGraph {
+  MapAccum<STRING, INT> @@ordersPerCustomer;
+
+  orderSet = SELECT o FROM Orders1:o ACCUM @@ordersPerCustomer += (o.customer_id -> 1);
+
+  PRINT @@ordersPerCustomer AS Orders_Per_Customer;
+}
+_____________________________________________________
+EmployeesPerStore
+CREATE QUERY EmployeesPerStore() FOR GRAPH RetailGraph {
+
+  MapAccum<INT, INT> @@employeesPerStore;
+
+  empSet = SELECT e FROM Employees1:e ACCUM @@employeesPerStore += (e.store_id -> 1);
+
+  PRINT @@employeesPerStore AS Employees_Per_Store;
+}
+______________________________________________________
+OrdersPerCustomer
+CREATE QUERY OrdersPerCustomer() FOR GRAPH RetailGraph {
+  MapAccum<STRING, INT> @@ordersPerCustomer;
+
+  orderSet = SELECT o FROM Orders1:o ACCUM @@ordersPerCustomer += (o.customer_id -> 1);
+
+  PRINT @@ordersPerCustomer AS Orders_Per_Customer;
+}
+_______________________________________________
+ProductsPerCategory
+CREATE QUERY ProductsPerCategory() FOR GRAPH RetailGraph {
+  MapAccum<STRING, INT> @@productsPerCategory;
+
+  prodSet = SELECT p FROM Products1:p ACCUM @@productsPerCategory += (p.category_id -> 1);
+
+  PRINT @@productsPerCategory AS Products_Per_Category;
+}
+_____________________________________________________
+ProductsWithReviews
+CREATE QUERY ProductsWithReviews_1() FOR GRAPH RetailGraph {
+
+  // All product IDs are STRING
+  SetAccum<STRING> @@allProducts;
+  // Reviewed product IDs must also be STRING (cast int -> string)
+  SetAccum<STRING> @@productsWithReviews;
+
+  // Collect all products
+  allSet = SELECT p FROM Products1:p ACCUM @@allProducts += p.product_id;
+
+  // Collect products that have reviews (cast INT -> STRING)
+  reviewSet = SELECT r FROM Reviews1:r ACCUM @@productsWithReviews += TOSTRING(r.product_id);
+
+  // Print results
+  PRINT @@allProducts AS All_Products;
+  PRINT @@productsWithReviews AS Products_With_Reviews;
+
+}
+___________________________________________________________________________________________________
+SalesPerStore
+CREATE QUERY SalesPerStore() FOR GRAPH RetailGraph {
+
+  MapAccum<INT, FLOAT> @@salesPerStore;
+
+  salesSet = SELECT s FROM Sales1:s ACCUM @@salesPerStore += (s.store_id -> s.total_sales);
+
+  PRINT @@salesPerStore AS Total_Sales_Per_Store;
+}
+_____________________________________________________________
+
