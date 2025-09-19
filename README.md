@@ -1,4 +1,4 @@
-KnowledgeGraph in Tigergraph
+
 # What is Tigergraph?
 ### TigerGraph is a scalable graph database and analytics platform designed for handling and analyzing large volumes of interconnected data. It's particularly known for its Native Parallel Graph (NPG) technology, which allows it to perform real-time, deep-link analytics on massive datasets, with trillions of edges and hundreds of terabytes of data. Unlike traditional databases that store data in tables, TigerGraph stores data as a graph structure consisting of vertices (entities) and edges (relationships). The platform's native query language, GSQL, is optimized for graph analytics and enables complex queries and algorithms.
 
