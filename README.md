@@ -18,13 +18,3 @@ Map and Load Data: Once the schema is defined, you can load your data into the g
 Query and Analyze: With the data loaded, you can use GSQL or other APIs to query and analyze the knowledge graph. GSQL is a powerful, SQL-like language that supports complex traversals (multi-hop queries), pattern matching, and the execution of graph algorithms like PageRank and community detection. This is where you can uncover hidden relationships and gain insights from your interconnected data.
 
 
-
-Applications: Once created, a knowledge graph in TigerGraph can power a variety of applications, such as:
-
-Fraud Detection: Identifying complex fraud rings by analyzing relationships between accounts, transactions, and devices.
-
-Recommendation Engines: Providing personalized recommendations by understanding user behavior and relationships between users and products.
-
-Supply Chain Management: Visualizing and optimizing supply chain networks to identify potential bottlenecks and risks.
-
-Customer 360: Creating a comprehensive, 360-degree view of a customer by integrating data from all touchpoint
