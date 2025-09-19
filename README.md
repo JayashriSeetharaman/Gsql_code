@@ -1,1 +1,1 @@
-# Gsql_code
+KnowledgeGraph in Tigergraph
